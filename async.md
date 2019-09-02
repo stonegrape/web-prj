@@ -5,6 +5,12 @@
 浪费了计算机的处理能力。
 阻塞：当浏览器中的一个web应用进行密集运算，还没有把控制权交给浏览器时，整个浏览器就像冻僵了一样。
 线程：一个线程是一个基本处理过程。Task A --> Task B --> Task C
+
+JavaScript is single thread
+在最基本的形式中，JavaScript是一种同步的、阻塞的、单线程的语言
+同步，异步
+？？很多网页API特性使用异步代码，特别是从外部的设备上获取资源，譬如，从网络获取文件，访问数据库，从网络摄像头获得视频流，或者向VR头罩广播图像。
+
 2.callback promise 解决异步问题
 callback 回调函数 旧时浏览器异步编程解决方案。
 promise 现代浏览器异步编程解决方案
@@ -15,7 +21,7 @@ promise 现代浏览器异步编程解决方案
 <html lang="en-US">
 <body>
 <script>
-    //旧时callback
+    //callback
     chooseToppings(function(toppings) {
         placeOrder(toppings, function(order) {
             collectOrder(order, function(pizza) {
@@ -35,7 +41,7 @@ promise 现代浏览器异步编程解决方案
     eatPizza(pizza);
     })
     .catch(failureCallback);
-    //()=>x 相当于 ()=>{return x;}
+    //()=>x 相当于 () => {return x;}
     chooseToppings()
     .then(toppings => placeOrder(toppings))
     .then(order => collectOrder(order))
