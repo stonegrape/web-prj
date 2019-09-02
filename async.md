@@ -17,6 +17,9 @@ promise 现代浏览器异步编程解决方案
 3.promise是一个对象，代表了一个异步操作的最终完成或失败。
 本质上，Promise 是一个被某些函数传出的对象，我们附加回调函数（callback）使用它，而不是将回调函数传入那些函数内部。
 回调地狱
+
+git: git log --graph --pretty=oneline --abbrev-commit
+
 <!DOCTYPE html>
 <html lang="en-US">
 <body>
