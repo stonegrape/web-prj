@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>async-awit-promise</title>
+  </head>
+  <body>
+    <script>
+        //异步函数myFetch 获取图片并且把图片显示在html页面中
+        async function myFetch() {
+            let response = await fetch(coffee.jpg);
+            return await response.blob;
+        }
+        myFetch().then((blob)=>{
+            let objectURL = URL.createObjectURL(blob);
+            let image = document.createElement('img');
+            image.src = objectURL;
+            document.body.appendChild(image);
+        });
+
+    </script>
+  </body>
+</html>

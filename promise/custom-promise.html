@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Custom promise example</title>
+  </head>
+  <body>
+    <script>
+      // Define custom promise function
+      //使用现有的旧项目代码，库或框架以及基于现代promise的代码时，这会派上用场。
+      let timeoutPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('Success!');
+        }, 2000);
+      });
+
+      timeoutPromise
+      .then(message => {
+         alert(message);
+      })
+      
+      //message :用来做某事的消息,以及在做这件事之前之前经过的时间间隔
+      function timeoutPromise(message, interval) {
+        //函数内部，返回一个新的Promise对象 - 调用该函数将返回我们想要使用的promise。
+        return new Promise((resolve, reject) => {
+          //检查消息是否适合被警告
+          if (message === '' || typeof message !='string') {
+            reject('Message is empty or not a string');
+          } else if(interval < 0 || typeof interval !== 'number'){
+            //检查间隔是否是适当的间隔值
+            reject('Interval is negative or not a number');
+          }else {
+            setTimeout(function(){
+              //如果参数看起来都正常，使用setTimeout()在指定的时间间隔过后，使用指定的消息解析promise
+              resolve(message);
+            }, interval);
+          }
+        });
+      }
+      timeoutPromise('Hello there!', 1000)
+      .then(message =>{
+        alert(message);
+      })
+      .catch(e => {
+        console.log('Error ' + e)
+      });
+    </script>
+  </body>
+</html>
