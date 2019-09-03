@@ -9,7 +9,7 @@
         //异步函数myFetch 获取图片并且把图片显示在html页面中
         async function myFetch() {
             let response = await fetch('coffee.jpg');
-            return await response.blob;
+            return await response.blob();
         }
         myFetch().then((blob)=>{
             let objectURL = URL.createObjectURL(blob);
