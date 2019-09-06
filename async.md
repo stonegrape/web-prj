@@ -17,7 +17,10 @@ promise 现代浏览器异步编程解决方案
 3.promise是一个对象，代表了一个异步操作的最终完成或失败。
 本质上，Promise 是一个被某些函数传出的对象，我们附加回调函数（callback）使用它，而不是将回调函数传入那些函数内部。
 回调地狱
-
+4.async/await 需要考虑旧版本浏览器的支持
+callback(); 
+setTimeout(); setInterval(); //特定的帧速率
+requestAnimationFrame();//是一种允许您以给定当前浏览器/系统的最佳帧速率重复且高效地运行函数的方法 
 git: git log --graph --pretty=oneline --abbrev-commit
 
 <!DOCTYPE html>

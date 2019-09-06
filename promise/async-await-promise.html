@@ -7,6 +7,9 @@
   <body>
     <script>
         //异步函数myFetch 获取图片并且把图片显示在html页面中
+        //awit 只能在异步函数内部工作
+        //await关键字使JS运行时暂停此行上的代码，允许其他代码在此期间执行，直到异步函数调用返回其结果。
+        //一旦完成，您的代码将继续从下一行开始执行。
         async function myFetch() {
             let response = await fetch('coffee.jpg');
             return await response.blob();
@@ -16,6 +19,9 @@
             let image = document.createElement('img');
             image.src = objectURL;
             document.body.appendChild(image);
+        })
+        .catch (e => {
+          console.log(e);
         });
 
     </script>
