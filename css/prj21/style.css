@@ -1,0 +1,35 @@
+
+/*
+1.绝对定位和相对定位
+2.浏览器默认如何组织元素
+.positioned {
+    /*相对定位
+    position: relative;
+      /*绝对定位
+    position: absolute;
+    background: gold;
+    top: 30px;
+    left: 40px;
+}
+  /*浏览器默认如何组织元素？？
+  body {
+    width: 500px;
+    margin: 0 auto;
+  }
+  
+  p {
+    background: rgba(255, 84, 101, 0.788); 
+    border: 2px solid rgb(0, 104, 26);
+    padding: 10px;
+    margin: 10px;
+  }
+  span {
+    background: white;
+    border: 1px solid black;
+  }
+*/
+
+
+
+
+

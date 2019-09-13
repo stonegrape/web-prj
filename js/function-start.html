@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Function start</title>
+    <style>
+      .msgBox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 242px;
+        background: #eee;
+      }
+
+      .msgBox p {
+        line-height: 1.5;
+        padding: 10px 20px;
+        color: #333;
+        padding-left: 82px;
+        background-position: 25px center;
+        background-repeat: no-repeat;
+      }
+
+      .msgBox button {
+        background: none;
+        border: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.1rem;
+        color: #aaa;
+      }
+
+    </style>
+  </head>
+  <body>
+    <button>Display message box</button>
+    <script>
+      var btn = document.querySelector('button');
+      //btn.onclick = displayMessage();函数会直接调用 
+      //点击之后，函数调用
+      btn.onclick = function() {
+        //displayMessage('Woo, this is a different message!');
+        //displayMessage('Your inbox is almost full — delete some mails', 'warning');
+        displayMessage('Brian: Hi there, how are you today?','chat');
+      }
+      function displayMessage(msgText, msgType){
+        var html = document.querySelector('html');//dom(文档模型)的内置方法 选择html元素
+        var panel = document.createElement('div');//创建div元素
+        panel.setAttribute('class', 'msgBox');
+        html.appendChild(panel);
+
+        var msg = document.createElement('p');//创建p元素
+        msg.textContent = msgText;//给p元素赋值
+        panel.appendChild(msg);
+
+        var closeBtn = document.createElement('button');//创建button元素
+        closeBtn.textContent = 'x';//给button元素赋值
+        panel.appendChild(closeBtn);
+
+        closeBtn.onclick = function() {
+          panel.parentNode.removeChild(panel);//将closeBtn消息提示框从父元素panel删除
+          }
+        if (msgType === 'warning') {
+        msg.style.backgroundImage = 'url(warning.png)';
+        panel.style.backgroundColor = 'red';
+        } else if (msgType === 'chat') {
+        msg.style.backgroundImage = 'url(chat.png)';
+        panel.style.backgroundColor = 'aqua';
+        } else {
+        msg.style.paddingLeft = '20px';
+        }
+      }
+      
+    </script>
+  </body>
+</html>

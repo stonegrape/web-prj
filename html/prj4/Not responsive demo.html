@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Not responsive demo</title>
+    <style>
+      html {
+        font-family: sans-serif;
+        background-color: gray;
+      }
+
+      body {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: white;
+      }
+
+      header {
+        background: url(header.jpg) no-repeat center;
+        height: 200px;
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      p {
+        line-height: 1.5;
+      }
+
+      img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>My website</h1>
+        <!--size 表示条件判断，表示设备宽度，如果设备宽度最大值小于720px 将填充720px宽的槽-->
+        <!--加载srcset中最接近槽的宽度的图像-->
+        <!--srcset中：文件名 空格 图片的大小-->
+        <!--注释：srcset指的是文件名，不能用路径表示，必须把图像放在html同一目录下-->
+        <img srcset="myfanpc.jpg 130w,
+                     myfanphone.jpg 69w" 
+             sizes="(max-width:720px) 480px,(min-width:1300px) 1300px，800px" 
+             src="Not responsive demo_files/fan.jpg" alt="this is a fan">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget venenatis ligula. Ut lacinia at dolor vitae pulvinar. 
+          Aliquam pretium dignissim eros. Integer faucibus, dui non aliquet 
+          bibendum, lectus orci lobortis odio, ornare porttitor est tellus eget 
+          velit. Nulla eros elit, malesuada id neque vel, viverra vehicula neque. 
+          Nullam auctor turpis non leo iaculis finibus. Quisque blandit arcu 
+          venenatis libero tempor, ac pulvinar ligula dapibus.</p>
+        <picture>
+          <source media="(min-width:800px)" srcset="timg1.jpg">
+          <source media="(max-width:799px)" srcset="timg2.jpg">
+          <img src="Not responsive demo_files/fan.jpg" alt="this is a Totoro">
+        </picture>
+      </section>
+    </main>
+  </body>
+</html>

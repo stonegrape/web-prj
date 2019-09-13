@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple grid</title>
+    <style>
+      /*问题*/
+      /*css语法;css专业用词*/
+      /*flex：弹性盒子 一维;grid:网格 二维*/
+      /*笔记：
+        grid:二维
+        对齐项目到块方向的列轴:align-self align-items
+        对齐项目到文本方向的行轴:justify-self justify-items
+        对齐项目轨道到块方向的列轴:align-content
+        flex:一维
+        沿主轴方向上的对齐:justify-content
+        沿文本方向对齐:algin-content
+        */
+        /*css网格布局，盒模型对齐和书写模式*/
+        .wrapper {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          grid-gap: 10px;
+          font: 1em Helvetica, Arial, sans-serif;
+          }
+        
+        
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="content"> 
+          <p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
+          <p>Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jícama salsify.</p>
+      </div>
+      <nav>
+          <ul>
+              <li><a href="">Link 1</a></li>
+              <li><a href="">Link 2</a></li>
+              <li><a href="">Link 3</a></li>
+          </ul>
+      </nav>
+  </div>
+  </body>
+</html>

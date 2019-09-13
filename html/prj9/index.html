@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <title>this is my test</title>
+        <link href="payment-form.css" rel="stylesheet">
+    </head>
+    <body>
+        <form>
+            <h1>payment form</h1>
+            <p>Required fields are followed by <strong><abbr title="required">*</abbr></strong></p>
+            <section>
+                <h2>contact information</h2>
+                <fieldset>
+                    <legend>title</legend>
+                    <ul>
+                        <li>
+                            <label for="title-1">
+                                <input type="radio" name="title" id="title-1" value="M.">
+                                Mister
+                            </label>
+                        </li>
+                        <li>
+                            <label for="title-2">
+                                <input type="radio" name="title" id="title-2" value="Ms.">
+                                Miss
+                            </label>
+                        </li>
+                    </ul>
+                </fieldset>
+                <p>
+                    <label for="name">
+                        <span>name:</span>
+                        <strong><abbr title="required">*</abbr></strong>
+                    </label>
+                    <input type="text" name="username" id="name">
+                </p>
+                <p>
+                    <label for="mail">
+                        <span>e-mail</span>
+                        <strong><abbr title="required">*</abbr></strong>
+                    </label> 
+                    <input type="email" name="usermail" id="mail">
+                </p>
+                <p>
+                    <label for="password">
+                        <span>password:</span>
+                        <strong><abbr title="required">*</abbr></strong>
+                    </label>
+                    <input type="password" name="userpassword" id="password">
+                </p>
+            </section>
+            <section>
+                <h2>payment information</h2>
+                <p>
+                    <label for="card">
+                        <span>card type:</span>
+                    </label>
+                    <select id="card" name="usercard">
+                        <option value="visa">Visa</option>
+                        <option value="mc">Mastercard</option>
+                        <option value="amex">American Express</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="cardnumber">
+                        <span>card number:</span>
+                        <strong><abbr title="required">*</abbr></strong>
+                    </label>
+                    <input type="text" name="cardnumber" id="cardnumber">
+                </p>
+                <p>
+                    <label for="date">
+                        <span>Expiration date:</span>
+                        <strong><abbr for="required">*</abbr></strong>
+                    </label>
+                    <input type="date" name="dat" id=expiration>
+                </p>
+            </section>
+            <p><button type="submit">Validate the payment</button></p>
+        </form>
+        <form method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="file">your file</label>
+                <input type="file" name="file" id="file">
+            </div>
+            <div>
+                <button type="submit">提交</button>
+            </div>
+        </form>
+        
+    </body>
+</html>

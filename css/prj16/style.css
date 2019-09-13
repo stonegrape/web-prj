@@ -1,0 +1,112 @@
+/* General setup */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  min-width: 1000px;
+  max-width: 1400px;
+}
+
+/* Layout */
+
+section {
+  float: left;
+  width: 50%;
+}
+
+aside {
+  float: left;
+  width: 30%;
+}
+
+nav {
+  float: left;
+  width: 20%;
+}
+
+footer {
+  clear: both;
+}
+
+header, section, aside, nav, footer {
+  padding: 20px;
+}
+
+/* header and footer */
+
+header, footer {
+  border-top: 5px solid #a66;
+  border-bottom: 5px solid #a66;
+}
+
+/* WRITE YOUR CODE BELOW HERE */
+/*设置字体*/
+html {
+  font-family: serif;
+  font-size: 10px;
+}
+/*line-height 设置文本的行高*/
+/*word-spacing 设置字母间距*/
+/*letter-spacing 设置单词间距*/
+body p{
+  line-height: 2rem;
+  letter-spacing: 0.05rem;
+  word-spacing: 0.3rem;
+}
+
+h1, h2, p {
+  font-family: sans-serif;
+}
+
+h1, h2 {
+  font-size: 3rem;
+  letter-spacing: 0.05rem;
+}
+
+p, ul, ol {
+  font-size: 1.6rem;
+}
+/*text-align 文本水平居中*/
+h1 {
+  text-align: center;
+}
+/*在<section>元素中，每个标题后的第一段文字设置20px的文本缩进*/
+/*注：1.层叠与继承：元素的专用性 2.nth-of-type*/
+/*text-indent 文本缩进*/
+section p:nth-of-type(2n+1) {
+  text-indent: 2rem;
+}
+/*link visited focus hover active*/
+a:link, a:visited, a:focus, a:hover {
+  color: #a66;
+}
+a:focus, a:hover {
+  text-decoration-line: none;
+}
+/*取消页面中所有链接focus时默认的外边线*/
+a:focus {
+  outline: none;
+}
+
+a:active {
+  background: antiquewhite;
+}
+/*href*=https 所有的外部链接*/
+/*链接右边添加图片*/
+a[href*=https] {
+  background: url(external-link-52.png) no-repeat 100% 0;
+  background-size: 1.6rem 1.6rem;
+  padding-right: 1.9rem;
+}
+
+ul, ol {
+  line-height: 2rem;
+}
+
+/*列表的项目符号*/
+ul {
+  list-style-type: square;
+}

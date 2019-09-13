@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Zero setTimeout() example</title>
+  </head>
+  <body>
+    <script>
+      //3000 表示 点击第二个alert的弹出框上的‘确定’后，间隔3000ms运行setTimeout函数
+      //可以把参数设置：0 表示立刻执行 
+      // setTimeout(function() {
+      //  alert('World');
+      // }, 3000);
+
+      // alert('hello');
+
+
+      //startTime timestamp 应该设置什么样的值 
+      let startTime = null;
+
+      function draw(timestamp) {
+          if(!startTime) {
+            startTime = timestamp;
+          }
+        currentTime = timestamp - startTime;
+
+        // Do something based on current time
+        // console.log(currentTime);
+        alert('hello');
+
+        requestAnimationFrame(draw);
+      }
+      draw();
+    </script>
+  </body>
+</html>

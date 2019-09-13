@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <script type="text/javascript" src="https://maps.google.com/maps/API/js?key=AIzaSyDDuGt0E5IEGkcE6ZfrKfUtE9Ko_de66pA">
+      //获取设备的当前位置
+      //position 表示当前位置数据的position对象
+      //由另一个函数作为参数的函数称为回调函数callback function
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+        var myOptions = {
+          zoom: 8,
+          center: latlng,
+          mapTypeId: google.maps.MapTypeId.TEERAIN,
+          disableDefaultUI: true
+        }
+        var map = new googel.maps.Map(document.querySelector("#map_canvas"), myOptions);  
+      });
+    </script>
+  </body>
+</html>
+
+
+    
