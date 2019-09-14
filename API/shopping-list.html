@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <script>
+      //简单的购物单列表
+      //获得 ul,input,button的reference
+      let ul = document.querySelector('ul');
+      let input =  document.querySelector('input');
+      let button = document.querySelector('button');
+      //点击add tiem button 的响应事件
+      button.onclick = function() {
+        let text = input.value;
+        input.value = '';
+        //create li span button
+        let li = document.createElement('li');
+        let span = document.createElement('span');
+        let everyButton = document.createElement('button');
+        //把 span button appendchild li
+        li.appendChild(span);
+        li.appendChild(everyButton);
+        ul.appendChild(li);
+        
+        //赋值span everyButton
+        span.textContent = text;
+        everyButton.textContent = 'delete';
+        //点击button 删除所在行
+        everyButton.onclick = function() {
+          li.parentNode.removeChild(li);
+        }
+        input.focus();
+      }
+    </script>
+  </body>
+</html>

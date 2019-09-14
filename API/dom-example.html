@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple DOM example</title>
+    <style>
+      .highlight {
+        color: white;
+        background-color: black;
+        padding: 10px;
+        width: 250px;
+        text-align: center;
+      }
+    </style>
+
+  </head>
+  <body>
+      <section>
+        <img src="images/dinosaur.png" alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+        <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
+      </section>
+      <script>
+        //querySelector(); call will match the first element 
+        //querySelectAll(); match every element in the document ;stores references to them in an array-like object called a NodeList. 
+        //document.getElementById();
+        //document.getElementsByTagName
+        var link = document.querySelector('a');
+        link.textContent = 'Mozilla Developer Network';
+        link.href = 'https://developer.mozilla.org';
+        //获取元素的引用
+        let sect = document.querySelector('section');
+        //创建一个新的段落
+        let para = document.createElement('p');
+        para.textContent = 'we hope you enjoyed the ride';
+        sect.appendChild(para);
+        //创建一个文本节点
+        var text = document.createTextNode(' — the premier source for web development knowledge.');
+        //选中p node 
+        let linkPara = document.querySelector('p');
+        //把 text node 添加到 linkPara node中
+        linkPara.appendChild(text);
+        sect.appendChild(linkPara);
+        //删除子节点
+        //sect.removeChild(linkPara);
+        //利用节点删除自身
+        linkPara.parentNode.removeChild(linkPara);
+        para.setAttribute('class','highlight');
+      </script>
+  </body>
+</html>
