@@ -15,8 +15,7 @@ requestjson.onload = function () {
   }else {
     console.log('Network request for products.json failed with response ' + requestjson.status + ': ' + requestjson.statusText);
   }
-
-}
+};
 requestjson.send();
 
 // sets up the app logic, declares required variables, contains all the other functions
@@ -162,7 +161,8 @@ function initialize() {
       }else{
         console.log('Network request for "' + product.name + '" image failed with response ' + requestblob.status + ': ' + requestblob.statusText);
       }
-    }
+    };
+    requestblob.send();
   }
 
   // Display a product inside the <main> element
