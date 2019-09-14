@@ -75,20 +75,28 @@
         //debug:不能直接使用形参
         let verse2 = verse;
         verse2 = verse2.replace(" ","");
-        verse2 = verse2.toLoweCase();//
+        verse2 = verse2.toLowerCase();
         let url = verse2 + '.txt';
+        //使用XMLHttpReuqest构造函数 创建一个新的对象
+        let request = new XMLHttpRequest();
+        //从网络请求资源的http request method(GET) 以及 url
+        request.open('GET', url);
+        //设置期待的响应类型
+        request.responseType = 'text';
+
+        request.onload = function () {
+          poemDisplay.textContent = request.response;
+        }
+        request.send();
+        updateDisplay('Verse 1');
+        verseChoose.value = 'Verse 1'; 
       }
 
-      let request = new XMLHttpRequest();
-      //从网络请求资源的http request method 以及 url
-      request.open('GET', url);
-      request.responseType = 'text';
-      request.onload = function () {
-        poemDisplay.textContent = request.response;
-      }
-      request.send();
-      updateDisplay('Verse 1');
-      verseChoose.value = 'Verse 1';  
+      
+      
+      
+
+ 
     </script>
   </body>
 </html>
