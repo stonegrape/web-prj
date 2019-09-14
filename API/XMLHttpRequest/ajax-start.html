@@ -61,17 +61,21 @@
     </pre>
 
     <script>
+      //获取 select pre reference
       let verseChoose = document.querySelector('select');
       let poemDisplay = document.querySelector('pre');
-      
+      //select onchange 
       verseChoose.onchange = function() {
         let verse = verseChoose.value;
         updateDisplay(verse);
       }
 
       function updateDisplay(verse) {
+        //删除verse 中的空格，将Verse 1 转换成 verse.txt
+        //debug:不能直接使用形参
+        let verse = verse;
         verse = verse.replace(" ","");
-        verse = verse.toLoweCase();
+        verse = verse.toLoweCase();//
         let url = verse + '.txt';
       }
 
