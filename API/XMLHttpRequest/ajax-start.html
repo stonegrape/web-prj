@@ -84,19 +84,15 @@
         //设置期待的响应类型
         request.responseType = 'text';
 
+        //当httprequest 响应已经返回，触发 onload 事件
         request.onload = function () {
           poemDisplay.textContent = request.response;
         }
         request.send();
-        updateDisplay('Verse 1');
-        verseChoose.value = 'Verse 1'; 
       }
-
-      
-      
-      
-
- 
+      //首次加载调用updateDisplay
+      updateDisplay('Verse 1');
+      verseChoose.value = 'Verse 1'; 
     </script>
   </body>
 </html>
