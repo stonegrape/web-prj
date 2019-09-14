@@ -71,12 +71,9 @@
       }
 
       function updateDisplay(verse) {
-        //删除verse 中的空格，将Verse 1 转换成 verse.txt
-        //debug:不能直接使用形参
-        let verse2 = verse;
-        verse2 = verse2.replace(" ","");
-        verse2 = verse2.toLowerCase();
-        let url = verse2 + '.txt';
+        verse = verse.replace(" ","");
+        verse = verse.toLowerCase();
+        let url = verse + '.txt';
         //使用XMLHttpReuqest构造函数 创建一个新的对象
         let request = new XMLHttpRequest();
         //从网络请求资源的http request method(GET) 以及 url
