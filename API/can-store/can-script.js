@@ -1,7 +1,7 @@
 // create a variable to store the products 'database' in
 var products;
 
-let url = products + '.json';
+let url = 'products.json';
 let requestjson = new XMLHttpRequest();
 requestjson.open('GET', url);
 requestjson.responseType = 'json';
