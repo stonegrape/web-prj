@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>canvas-animation</title>
+        <style>
+            body {
+                margin: 0;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas class="myCanvas">
+            <p>浏览器不支持canvas</p>
+        </canvas>
+        <script>
+            var canvas = document.querySelector('.myCanvas');
+            //得到充满窗口的画布
+            var width = canvas.width = window.innerWidth;
+            var height = canvas.height = window.innerHeight;
+            var ctx = canvas.getContext('2d');
+            ctx.fillStyle = 'rgb(0, 0, 0)';
+            ctx.fillRect(0, 0, width, height);
+            
+            //创建一个简单的人物动画
+            //将画布的原点设置为中心点
+            ctx.translate(width/2, height/2);
+            let image = new Image();
+            image.src = 'images/walk-right.png';
+            image.onload = draw;
+            
+            let sprite = 0;//精灵序列
+            let posX = 0;
+
+            function draw() {
+                ctx.fillRect(-(width/2),-(height/2),width,height);
+                //参数2，3指定切片左上顶点在原图中的位置 X值为sprite(精灵序列0-5)*102，Y恒定为0
+                //参数4，5指定切片尺寸 102*148px
+                //参数6，7指定切片在画布绘制区域左上定点的坐标。
+                //X:0+posX 可以通过修改posX的值来修改绘制的位置
+                ctx.drawImage(image, (sprite*102), 0, 102, 148, 0+posX, -74, 102, 148);
+                if(posX % 13 ===0) {
+                    if (sprite === 5) {
+                        sprite = 0;
+                    }else {
+                        sprite ++;
+                    }
+                }
+                if (posX > width/2) {
+                    newStartPos = -((width/2) + 102);
+                    posX = Math.ceil(newStartPos / 13) * 13;
+                    console.log(posX);
+                }else {
+                    posX += 2;
+                }
+                window.requestAnimationFrame(draw);
+            }
+        </script>
+                
+    </body>
+</html>

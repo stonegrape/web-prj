@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Canvas--animations</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas class="myCanvas">
+      <p>Add suitable fallback here.</p>
+    </canvas>
+
+    <script>
+
+      var canvas = document.querySelector('.myCanvas');
+      var width = canvas.width = window.innerWidth;
+      var height = canvas.height = window.innerHeight;
+      var ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = 'yellow';
+      ctx.fillRect(0,0,width,height);
+      //原点(0,0) 从画布左上定点移动到画布正中心
+      ctx.translate(width/2, height/2);
+
+      function degToRad(degrees) {
+        return degrees * Math.PI / 180;
+      }
+      //随机整数
+      function rand(min, max) {
+        return Math.floor(Math.random() * (max-min+1)) + (min);
+      }
+      var length = 250;
+      var moveOffset = 20;
+      //利用for循环在画布上循环绘制内容
+      for (let i = 0; i < length; i++) {
+/*
+        //三角形
+        ctx.fillStyle = 'rgba(' + (255-length) + ', 0,' + (255-length) + ',0.9)';
+        ctx.beginPath();
+        ctx.moveTo(moveOffset, moveOffset);
+        ctx.lineTo(moveOffset+length, moveOffset);
+        var triHeight = length/2 * Math.tan(degToRad(60));
+        ctx.lineTo(moveOffset+(length/2), moveOffset+triHeight);
+        ctx.lineTo(moveOffset, moveOffset);
+        ctx.fill();
+
+        length--;
+        moveOffset += 0.7;
+        ctx.rotate(degToRad(5));
+*/
+/*      矩形
+        ctx.fillStyle = 'rgba(' + (255-length) + ', 0,' +(255-length) + ', 0.9)';
+        ctx.beginPath();
+        ctx.moveTo(moveOffset,moveOffset);
+        ctx.lineTo(moveOffset+length,moveOffset);
+        ctx.lineTo(moveOffset+length,moveOffset+length);
+        ctx.lineTo(moveOffset,moveOffset+length);
+        ctx.lineTo(moveOffset,moveOffset);
+        ctx.fill();
+
+        length --;
+        moveOffset += 0.7;
+*/
+/*
+        //弧形
+        ctx.fillStyle = 'rgba(' + (255-length) + ', 0 ,' + (255-length) + '0.9)';
+        ctx.beginPath();
+        ctx.arc(moveOffset,moveOffset,length,degToRad(rand(0,360)),degToRad(rand(0,360)),true);
+        ctx.fill();
+        length --;
+        moveOffset += 0.7;
+*/
+
+      }
+
+
+    </script>
+  </body>
+</html>
