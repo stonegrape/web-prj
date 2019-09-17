@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Google Maps example</title>
+    <style>
+      #map_canvas {
+        width: 600px;
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Simple maps example</h1>
+
+    <div id="map_canvas"></div>
+
+    <script>
+    function initMap() {
+      var myOptions = {
+        zoom: 8,
+        center: {lat: 53.480759, lng: -2.242631},
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        disableDefaultUI: true
+      }
+      var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+      
+      //google maps 官方图标存储的URL
+      var icpnBase = 'http://maps.google.com/mapfiles/kml/shapes/';
+      //在地图上添加一个标记
+      var marker = new google.maps.Marker({
+        position: latlng,
+        icon: iconBase + 'flag_maps.png',
+        map: map  
+      });
+    }
+
+    //google maps
+    //包含HTML的js字符串:定义弹出窗口内容
+    var contentString = '<div id="content"><h2 id="firstHeading" class="firstHeading">Custom info window</h2><p>This is a cool info custom window.</p></div>';
+    var infowindow = new google.maps.Infowindow({
+      content: contentString
+    });
+    marker.addListener('click',function () {
+      infowindow.open(map, marker);
+    });
+
+
+    ////////////使用第三方API的方法
+
+    //--构造URL
+    var key = 'INSERT-YOUR-API-KEY-HERE';
+    searchForm.addEventListener('submit',fetchResults);
+    //添加分页按钮
+    nextBtn.addEventListener('click',nextPage);
+    previousBtn.addEventListener('click',previousPage);
+
+    function fetchResults(e) {
+      e.preventDefault();
+      url = baseURL + '?api-key=' + key + '&page=' + pageNumber + '&q=' + searchTerm.value;
+      if (startDate.value !== '') {
+        url += '&begin_date' + startDate.value;
+      }
+      if(endDate.value !== '') {
+        url += '&end_date=' + endDate.value;
+      }
+      fetch(url).then(function (result) {
+      return result.json();
+    }).then(function (json) {
+      displayResults(json);
+    });
+    }
+    function nextPage(e) {
+      pageNumber++;
+      fetchResults(e);
+    };
+    function previousPage(e) {
+      if(pageNumber > 0) {
+        pageNumber--;
+      }else {
+        return;
+      }
+      fetchResults(e);
+    };
+      // a complete URL :
+      //https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=4f3c267e125943d79b0a3e679f608a78&page=0&q=cats&begin_date=20170301&end_date=20170312
+      //--构造URL
+      //从API请求数据
+      //Use fetch() to make the request to the API
+
+    //display the data
+    function displayResults(json) {
+      while (section.firstChild) {
+        section.removeChild(section.firstChild);
+      }
+      var articles = json.response.docs;
+      if (articles.length === 10) {
+        nav.style.display = 'block';
+      } else {
+        nav.style.display = 'none';
+      }
+      if (article.length === 0) {
+        var para = document.createElement('p');
+        para.textContent = 'NO results returned.';
+        section.appendChild(para);
+      }else {
+        for(var i = 0; i < articles.length; i++) {
+          var article = document.createElement('article');
+          var heading = document.createElement('h2');
+          var link = document.createElement('a');
+          var img = document.createElement('img');
+          var para1 = document.createElement('p');
+          var para2 = document.createElement('p');
+          var clearfix = document.createElement('div');
+          
+          var current = articles[i];
+          console.log(current);
+          link.href = current.web.url;
+          link.textContent = current.heading.main;
+          para1.textContent = current.lead_paragraph;
+          para2.textContent = 'Keywords: ';
+          for(var j = 0; j< current.keywords.length; j++){
+            var span = document.createElement('span');
+            span.textContent += current.keywords[j].value + ' ';
+            para2.appendChild(span);
+          }
+          if (current.multimedia.length > 0) {
+            img.src = 'http://www.nytimes/' + current.multimedia[0].url;
+            img.alt = current.heading.mian;
+          }
+          clearfix.setAttribute('class', 'cleafix');
+          article.appendChild(heading);
+          heading.appendChild(link);
+          article.appendChild(img);
+          article.appendChild(para1);
+          article.appendChild(para2);
+          article.appendChild(clearfix);
+          section.appendChild(article);
+        }
+      }
+    };
+
+ 
+    
+
+
+
+
+
+    </script>
+    <!--无法获取google maps 开发者密钥，因为不能翻墙，连接不上google cloud-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=ENTER-API-KEY-HERE&callback=initMap"
+    async defer></script>
+  </body>
+</html>
