@@ -42,7 +42,7 @@ window.onload = function () {
     form.onsubmit = addData;
     function addData(e) {
         //prevent default - we don't want the form to submit in the conventional way 
-        e.prevetnDefault();
+        e.preventDefault();
         let newItem = { tilte: titleInput.value, body: bodyInput.value };
         let transaction = db.transaction(['notes'], 'readwrite');
         let objectStore = transaction.objectStore('notes');
@@ -74,7 +74,7 @@ window.onload = function () {
                 let para = document.createElement('p');
                 listItem.appendChild(h3);
                 listItem.appendChild(para);
-                list.appendChild(list);
+                list.appendChild(listItem);
                 h3.textContent = cursor.value.title;
                 para.textContent = cursor.value.body;
                 listItem.setAttribute('data-note-id', cursor.value.id);
