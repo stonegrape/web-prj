@@ -25,8 +25,7 @@ rwdBtn.onclick = function () {
 fwdBtn.onclick = function () {
     player.currentTime += 3;
     if(player.currentTime >= player.duration) {
-        //The operation was aborted. 因为此时player.paused = true 
-        //player.pause();
+        player.pause();
         player.currentTime = 0;
         playPauseBtn.textContent = 'Play';
     }
@@ -53,6 +52,6 @@ player.ontimeupdate = function () {
     timeLabel.textContent = mediaTime;
 }
 //解决视频自动播放完成，视频停止playPauseBtn.textContent='pause'的问题 
-if (player.paused) {
+if (player.currentTime = player.duration) {
     playPauseBtn.textContent = 'Play';
 }
