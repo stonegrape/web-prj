@@ -25,20 +25,19 @@ rwdBtn.onclick = function () {
 fwdBtn.onclick = function () {
     player.currentTime += 3;
     if(player.currentTime >= player.duration) {
-        player.pause();
+        //The operation was aborted. 因为此时player.paused = true 
+        //player.pause();
         player.currentTime = 0;
         playPauseBtn.textContent = 'Play';
     }
 };
-var minuteValue;
-var secondValue;
-var mediaTime;
+
 player.ontimeupdate = function () {
     var minutes = Math.floor(player.currentTime / 60);
-    var seconds = Math.floor((player.currentTime - minutes) / 60);
-    //var minuteValue;
-    //var secondValue;
-    //var mediaTime;
+    var seconds = Math.floor(player.currentTime - minutes* 60);
+    var minuteValue;
+    var secondValue;
+    var mediaTime;
     if (minutes < 10) {
         minuteValue = "0" + minutes;
     }else {
