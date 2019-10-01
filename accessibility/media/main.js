@@ -17,7 +17,7 @@ playPauseBtn.onclick = function () {
 stopBtn.onclick = function () {
     player.pause();
     player.currentTime = 0;
-    playPauseBtn.textContent = 'Play';    
+    playPauseBtn.textContent = 'Play';
 };
 rwdBtn.onclick = function () {
     player.currentTime -= 3;
@@ -51,4 +51,8 @@ player.ontimeupdate = function () {
     }
     mediaTime = minuteValue + ":" + secondValue;
     timeLabel.textContent = mediaTime;
+}
+//解决视频自动播放完成，视频停止playPauseBtn.textContent='pause'的问题 
+if (player.paused) {
+    playPauseBtn.textContent = 'Play';
 }
