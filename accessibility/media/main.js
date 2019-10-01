@@ -7,7 +7,7 @@ var player = document.querySelector('video');
 console.log('this is rabbit');
 player.removeAttribute('controls');
 playPauseBtn.onclick = function () {
-    if(player.pause) {
+    if(player.paused) {
         player.play();
         playPauseBtn.textContent = 'Pause';
     }else {
@@ -25,7 +25,7 @@ rwdBtn.onclick = function () {
 };
 fwdBtn.onclick = function () {
     player.currentTime += 3;
-    if(player.currentTime >= player.duration || player.pause) {
+    if(player.currentTime >= player.duration || player.paused) {
         player.pause();
         player.currentTime = 0;
         playPauseBtn.textContent = 'Play';
