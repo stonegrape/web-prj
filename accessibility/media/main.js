@@ -4,7 +4,6 @@ var rwdBtn = document.querySelector('.rwd');
 var fwdBtn = document.querySelector('.fwd');
 var timeLabel = document.querySelector('.time');
 var player = document.querySelector('video');
-console.log('this is rabbit');
 player.removeAttribute('controls');
 playPauseBtn.onclick = function () {
     if(player.paused) {
@@ -25,18 +24,21 @@ rwdBtn.onclick = function () {
 };
 fwdBtn.onclick = function () {
     player.currentTime += 3;
-    if(player.currentTime >= player.duration || player.paused) {
+    if(player.currentTime >= player.duration) {
         player.pause();
         player.currentTime = 0;
         playPauseBtn.textContent = 'Play';
     }
 };
+var minuteValue;
+var secondValue;
+var mediaTime;
 player.ontimeupdate = function () {
     var minutes = Math.floor(player.currentTime / 60);
     var seconds = Math.floor((player.currentTime - minutes) / 60);
-    var minuteValue;
-    var secondValue;
-    var mediaTime;
+    //var minuteValue;
+    //var secondValue;
+    //var mediaTime;
     if (minutes < 10) {
         minuteValue = "0" + minutes;
     }else {
