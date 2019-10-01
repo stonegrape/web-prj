@@ -52,6 +52,7 @@ player.ontimeupdate = function () {
     timeLabel.textContent = mediaTime;
 }
 //解决视频自动播放完成，视频停止playPauseBtn.textContent='pause'的问题 
+//issue:此问题未解决
 if (player.currentTime = player.duration) {
     playPauseBtn.textContent = 'Play';
 }
